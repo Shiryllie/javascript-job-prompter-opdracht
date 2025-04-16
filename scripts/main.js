@@ -72,3 +72,48 @@ const departments = {
 }
 
 console.log(departments);
+console.log("De afdeling Sales heeft "+departments.sales.numberOfEmployees+" medewerkers");
+console.log("Marketing is een leuke afdeling om te werken. "+departments.marketing.description+".");
+console.log("De afdeling Customer Service heeft "+departments['customer-service'].numberOfEmployees+" medewerkers");
+console.log("Sales is een uitdagende afdeling om te werken als Verkoopmanager. "+departments.sales.jobs[1].description);
+
+const userInput = prompt("Over welke afdeling wil je meer informatie? Kies uit: [marketing / sales / customer-service]");
+console.log(userInput);
+
+const gekozenAfdeling = departments[userInput];
+
+console.log(userInput+" is een leuke afdeling om te werken. Er werken op dit moment "+ gekozenAfdeling['numberOfEmployees']+" medewerkers.");
+
+const inputDepartment = prompt("Je koos "+ userInput +". Over welke functie wil je meer weten? Voer een getal tussen 0 en 3 in.\n0: "+gekozenAfdeling.jobs[0].title+",\n1: "+gekozenAfdeling.jobs[1].title+",\n2: "+gekozenAfdeling.jobs[2].title+",\n3: "+gekozenAfdeling.jobs[3].title);
+
+if (inputDepartment==="0") {
+    document.getElementById('role-title').textContent = gekozenAfdeling.jobs[0].title;
+    document.getElementById('department-description').textContent = gekozenAfdeling.description;
+    document.getElementById('role-description').textContent = gekozenAfdeling.jobs[0].description;
+    // console.log("Je koos " + gekozenAfdeling.jobs[0].title + ". Een uitdagende rol! " + gekozenAfdeling.jobs[0].description);
+}
+else if (inputDepartment=="1"){
+    document.getElementById('role-title').textContent = gekozenAfdeling.jobs[1].title;
+    document.getElementById('department-description').textContent = gekozenAfdeling.description;
+    document.getElementById('role-description').textContent = gekozenAfdeling.jobs[1].description;
+
+    // console.log("Je koos " + gekozenAfdeling.jobs[1].title + ". Een uitdagende rol! " + gekozenAfdeling.jobs[1].description);
+}
+else if (inputDepartment=="2"){
+
+    document.getElementById('role-title').textContent = gekozenAfdeling.jobs[2].title;
+    document.getElementById('department-description').textContent = gekozenAfdeling.description;
+    document.getElementById('role-description').textContent = gekozenAfdeling.jobs[2].description;
+    // console.log("Je koos " + gekozenAfdeling.jobs[2].title + ". Een uitdagende rol! " + gekozenAfdeling.jobs[2].description);
+}
+else if (inputDepartment=="3"){
+
+    document.getElementById('role-title').textContent = gekozenAfdeling.jobs[3].title;
+    document.getElementById('department-description').textContent = gekozenAfdeling.description;
+    document.getElementById('role-description').textContent = gekozenAfdeling.jobs[3].description;
+    // console.log("Je koos " + gekozenAfdeling.jobs[3].title + ". Een uitdagende rol! " + gekozenAfdeling.jobs[3].description);
+}
+else {
+    document.getElementById('error-message').textContent = "Ongeldige keuze. Probeer het opnieuw door de pagina te verversen.";
+}
+
